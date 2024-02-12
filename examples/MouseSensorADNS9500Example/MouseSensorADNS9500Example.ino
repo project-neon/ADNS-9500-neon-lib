@@ -1,4 +1,4 @@
-#include "MouseSensorADNS9500.cpp"
+#include <MouseSensorADNS9500.hpp>
 
 void setup() {
   // Initialize Serial
