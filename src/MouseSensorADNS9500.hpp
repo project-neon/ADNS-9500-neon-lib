@@ -3,6 +3,20 @@
 
 SPIClass vspi = SPIClass(VSPI);
 
+uint8_t mouseRead(char reg_addr);
+void mouseWrite(char reg_addr, char data);
+bool mouseUploadFirmware();
+
+// Begin SPI Transaction
+void beginSlaveCommunication(){
+  digitalWrite(SS, LOW);
+}
+
+// End SPI Transaction
+void endSlaveCommunication(){
+  digitalWrite(SS, HIGH);
+}
+
 // Initialize Mouse
 bool mouseInit(){
 
@@ -50,16 +64,6 @@ bool mouseInit(){
   delay(1);
 
   return true;
-}
-
-// Begin SPI Transaction
-void beginSlaveCommunication(){
-  digitalWrite(SS, LOW);
-}
-
-// End SPI Transaction
-void endSlaveCommunication(){
-  digitalWrite(SS, HIGH);
 }
 
 // Read register
